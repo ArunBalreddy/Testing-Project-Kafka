@@ -223,7 +223,7 @@ export class AwsController {
 
   // Download Multiple Files
   @Get('download-from-presigned-urls')
-  async downloadFromPresignedUrls(@Body() body, @Res() response: Response) {
+  async downloadFromPresignedUrls(@Body() body, @Res() response) {
     const { s3Keys } = body;
 
     try {
@@ -267,7 +267,7 @@ export class AwsController {
 
   // Download Single File
   @Get('download-from-presigned-url')
-  async downloadFromPresignedUrl(@Body() body, @Res() response: Response) {
+  async downloadFromPresignedUrl(@Body() body, @Res() response) {
     const { s3Key } = body;
     try {
       const fileStream = await this.awsS3Service.getFileStreamFromPresignedUrl(
@@ -334,7 +334,7 @@ export class AwsController {
   async downloadFolder(
     // @Param('folderName') folderName: string,
     @Body() body,
-    @Res() res: Response,
+    @Res() res,
   ) {
     const { folderName } = body;
     try {
