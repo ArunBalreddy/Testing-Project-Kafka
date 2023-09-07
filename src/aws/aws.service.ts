@@ -117,7 +117,7 @@ export class AwsService {
 
   // Upload file service for uploading folder
   async uploadFileFolder(filename: string, file: Buffer) {
-    const uploadPromise = this.s3Client.send(
+    const uploadPromise = await this.s3Client.send(
       new PutObjectCommand({
         Bucket: 'new-syncoffice-test',
         Key: `Arun/another 10,000 files/${filename}`,
